@@ -29,6 +29,7 @@
       color: var(--platinum); 
       overflow-x: hidden;
       position: relative;
+      line-height: 1.6;
     }
 
     /* FIXED SELECT VISIBILITY */
@@ -69,7 +70,7 @@
       50% { transform: scale(1.05); }
     }
 
-    /* NAVBAR */
+    /* NAVBAR - MOBILE FIRST */
     .navbar {
       position: fixed; top: 0; width: 100%; padding: 1rem 5%;
       background: rgba(10,14,23,0.95); backdrop-filter: blur(40px);
@@ -82,17 +83,18 @@
       flex-wrap: wrap; gap: 1rem;
     }
     .logo {
-      font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900;
       background: linear-gradient(135deg, var(--platinum), var(--silver));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .nav-links {
-      display: flex; gap: 1.5rem; list-style: none; align-items: center;
+      display: flex; gap: 1rem; list-style: none; align-items: center;
       flex-wrap: wrap;
     }
     .nav-links a {
       color: var(--platinum); text-decoration: none; font-weight: 600;
-      position: relative; transition: all 0.3s ease; font-size: clamp(0.85rem, 2.5vw, 1rem);
+      position: relative; transition: all 0.3s ease; font-size: clamp(0.9rem, 2.5vw, 1rem);
+      padding: 0.5rem 1rem;
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -5px; left: 0;
@@ -104,26 +106,27 @@
 
     .phone-link {
       background: linear-gradient(135deg, var(--blue-glow), #1d4ed8);
-      color: var(--platinum); padding: 0.8rem 1.8rem; border-radius: 50px;
-      font-weight: 700; font-size: clamp(0.85rem, 2.5vw, 1rem); text-decoration: none;
+      color: var(--platinum); padding: 0.9rem 2rem; border-radius: 50px;
+      font-weight: 700; font-size: clamp(0.9rem, 2.5vw, 1rem); text-decoration: none;
       box-shadow: 0 10px 30px rgba(59,130,246,0.4);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
     }
     .phone-link:hover {
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 20px 40px rgba(59,130,246,0.6);
     }
 
-    /* HERO */
+    /* HERO - MOBILE FIRST */
     .hero {
       min-height: 100vh; padding: 140px 5% 80px;
       max-width: 1600px; margin: 0 auto;
       display: flex; flex-direction: column; align-items: center; gap: 3rem;
       text-align: center;
     }
-    .hero-content { flex: 1; width: 100%; }
+    .hero-content { width: 100%; max-width: 600px; }
     .hero-title {
-      font-size: clamp(2.8rem, 10vw, 6.5rem); font-weight: 900; line-height: 1.1;
+      font-size: clamp(2.8rem, 8vw, 6.5rem); font-weight: 900; line-height: 1.1;
       background: linear-gradient(135deg, var(--platinum), var(--silver));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       margin-bottom: 1.5rem; animation: titleGlow 3s ease-in-out infinite;
@@ -133,12 +136,12 @@
       50% { filter: drop-shadow(0 0 40px rgba(241,245,252,0.6)); }
     }
     .hero-subtitle {
-      font-size: clamp(1.1rem, 4vw, 1.5rem); max-width: 600px; margin: 0 auto 2rem;
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem); max-width: 550px; margin: 0 auto 2rem;
       opacity: 0.95; line-height: 1.7; font-weight: 400;
     }
 
     .booking-panel {
-      flex: 1; width: 100%; max-width: 500px; background: var(--glass); backdrop-filter: blur(50px);
+      width: 100%; max-width: 550px; background: var(--glass); backdrop-filter: blur(50px);
       border: 1px solid var(--glass-border); border-radius: 32px;
       padding: 2.5rem 2rem; box-shadow: 0 50px 150px rgba(0,0,0,0.7);
       position: relative; overflow: hidden;
@@ -149,7 +152,7 @@
       box-shadow: 0 0 20px rgba(59,130,246,0.5);
     }
     .booking-title {
-      text-align: center; font-size: clamp(1.4rem, 5vw, 1.8rem); font-weight: 800;
+      text-align: center; font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800;
       background: linear-gradient(135deg, var(--platinum), var(--silver));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       margin-bottom: 2rem;
@@ -160,20 +163,16 @@
     .form-group { position: relative; }
     .form-input, select.form-input {
       width: 100%; padding: 1.2rem 1rem 1.2rem 3.8rem;
-      background: rgba(26,31,46,0.8) !important; 
-      border: 1px solid var(--glass-border);
-      border-radius: 20px; color: #f8fafc !important;
-      font-size: 1rem; backdrop-filter: blur(20px);
+      background: rgba(26,31,46,0.8); border: 1px solid var(--glass-border);
+      border-radius: 20px; color: #f8fafc; font-size: 1rem; backdrop-filter: blur(20px);
       transition: all 0.4s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.2);
       -webkit-appearance: none; -moz-appearance: none; appearance: none;
     }
-    .form-input::placeholder, select.form-input option {
-      color: rgba(248,250,252,0.8) !important;
-    }
+    .form-input::placeholder { color: rgba(248,250,252,0.7); }
     .form-input:focus, select.form-input:focus {
       outline: none; border-color: var(--blue-glow);
       box-shadow: 0 0 0 4px rgba(59,130,246,0.2), 0 15px 40px rgba(0,0,0,0.4);
-      transform: translateY(-2px); background: rgba(26,31,46,0.95) !important;
+      transform: translateY(-2px); background: rgba(26,31,46,0.95);
     }
     .form-icon {
       position: absolute; left: 1.3rem; top: 50%;
@@ -200,27 +199,29 @@
       box-shadow: 0 30px 70px rgba(59,130,246,0.7);
     }
 
-    /* SECTIONS */
+    /* COMMON SECTION STYLES */
     .trust-section, .services, .reviews-section, .coverage, .stats-section {
       padding: 80px 5%;
     }
     .trust-title, .section-title {
-      text-align: center; font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 900; margin-bottom: 3rem;
+      text-align: center; font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900; margin-bottom: 4rem;
       background: linear-gradient(135deg, var(--platinum), var(--silver));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
+
+    /* CARDS - MOBILE FIRST */
     .trust-grid, .services-grid {
       display: grid; grid-template-columns: 1fr; gap: 2rem;
       max-width: 500px; margin: 0 auto;
     }
-    .trust-card, .service-card {
+    .trust-card, .service-card, .coverage-card {
       background: var(--glass); backdrop-filter: blur(40px);
       border: 1px solid var(--glass-border); border-radius: 24px;
       padding: 2.5rem 2rem; text-align: center; transition: all 0.5s ease;
       position: relative; overflow: hidden;
     }
-    .trust-card:hover, .service-card:hover {
+    .trust-card:hover, .service-card:hover, .coverage-card:hover {
       transform: translateY(-15px) scale(1.02);
       box-shadow: 0 40px 100px rgba(0,0,0,0.6);
       border-color: var(--blue-glow);
@@ -230,12 +231,8 @@
       border-radius: 20px; display: flex; align-items: center; justify-content: center;
       font-size: 1.8rem; box-shadow: 0 10px 30px rgba(250,204,21,0.5);
     }
-    .trust-icon {
-      background: linear-gradient(135deg, var(--gold-glow), #eab308); color: var(--night);
-    }
-    .service-icon {
-      background: linear-gradient(135deg, var(--blue-glow), #60a5fa); color: var(--platinum);
-    }
+    .trust-icon { background: linear-gradient(135deg, var(--gold-glow), #eab308); color: var(--night); }
+    .service-icon { background: linear-gradient(135deg, var(--blue-glow), #60a5fa); color: var(--platinum); }
 
     /* REVIEWS */
     .reviews-grid {
@@ -248,10 +245,10 @@
       padding: 2.5rem; position: relative;
     }
     .review-avatar {
-      width: 60px; height: 60px; border-radius: 50%;
+      width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 1.5rem;
       background: linear-gradient(135deg, var(--blue-glow), var(--gold-glow));
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; color: var(--night); margin: 0 auto 1.5rem;
+      font-size: 1.5rem; color: var(--night);
     }
     .stars { color: var(--gold-glow); font-size: 1.3rem; margin-bottom: 1rem; text-align: center; }
     .review-text { font-style: italic; opacity: 0.95; line-height: 1.7; margin-bottom: 1.5rem; }
@@ -260,28 +257,19 @@
     /* COVERAGE */
     .coverage-grid {
       display: grid; grid-template-columns: 1fr; gap: 2rem;
-      max-width: 400px; margin: 3rem auto 0;
+      max-width: 500px; margin: 3rem auto 0;
     }
-    .coverage-card {
-      background: var(--glass); backdrop-filter: blur(40px);
-      border: 2px solid var(--glass-border); border-radius: 24px;
-      padding: 2.5rem; transition: all 0.4s ease; text-align: center;
-    }
-    .coverage-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      border-color: var(--gold-glow); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    }
+    .coverage-card { border: 2px solid var(--glass-border); }
 
-    /* ENHANCED STATS */
+    /* STATS */
     .stats-section {
       padding: 100px 5%; background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(26,31,46,0.8) 100%);
-      position: relative; overflow: hidden;
     }
     .trust-banner {
       text-align: center; padding-bottom: 3rem; position: relative;
     }
     .trust-text {
-      font-size: clamp(1.2rem, 4vw, 1.6rem); font-weight: 700;
+      font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 700;
       background: linear-gradient(135deg, var(--platinum), var(--silver));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       max-width: 600px; margin: 0 auto; opacity: 0.95;
@@ -294,7 +282,7 @@
     }
     .stats-container { max-width: 1200px; margin: 0 auto; }
     .stats-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;
     }
     .stat-card {
       background: var(--glass); backdrop-filter: blur(40px);
@@ -313,19 +301,17 @@
       box-shadow: 0 30px 80px rgba(0,0,0,0.6); border-color: var(--blue-glow);
     }
     .stat-number {
-      font-size: clamp(2.5rem, 8vw, 3.8rem); font-weight: 900;
+      font-size: clamp(2.8rem, 8vw, 4rem); font-weight: 900;
       background: linear-gradient(135deg, var(--blue-glow), var(--gold-glow));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem; line-height: 1; display: block;
+      margin-bottom: 1rem; line-height: 1;
     }
     .stat-label {
-      font-size: 1rem; font-weight: 600; color: var(--platinum);
+      font-size: 1.1rem; font-weight: 600; color: var(--platinum);
       opacity: 0.95; margin-bottom: 2rem;
     }
     .stat-icon {
-      font-size: 2rem; color: var(--gold-glow); position: absolute;
-      bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      opacity: 0.7;
+      font-size: 2rem; color: var(--gold-glow); opacity: 0.7;
     }
 
     /* CTA */
@@ -333,13 +319,13 @@
       padding: 100px 5%; text-align: center; background: var(--slate);
     }
     .cta-buttons {
-      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 3rem; max-width: 500px; margin-left: auto; margin-right: auto;
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 4rem; max-width: 600px; margin-left: auto; margin-right: auto;
     }
     .cta-btn {
-      padding: 1.3rem 2.5rem; border-radius: 24px; font-weight: 800;
+      padding: 1.4rem 3rem; border-radius: 24px; font-weight: 800;
       font-size: 1.1rem; text-decoration: none; transition: all 0.4s ease;
-      display: inline-flex; align-items: center; gap: 1rem; flex: 1; min-width: 180px;
+      display: inline-flex; align-items: center; gap: 1rem; flex: 1; min-width: 200px;
       justify-content: center;
     }
     .cta-primary {
@@ -351,39 +337,53 @@
       border: 2px solid var(--glass-border);
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /* TABLET & DESKTOP - PROGRESSIVE ENHANCEMENT */
     @media (min-width: 480px) {
-      .hero { gap: 4rem; }
-      .booking-form { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .booking-form { grid-template-columns: 1fr 1fr; }
       .trust-grid, .services-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .cta-buttons { flex-direction: row; gap: 2rem; }
-      .cta-btn { flex: none; width: auto; }
+      .cta-buttons { gap: 2.5rem; }
+      .cta-btn { flex: none; width: auto; min-width: auto; }
     }
 
     @media (min-width: 768px) {
       .nav-links { gap: 2.5rem; }
-      .hero { flex-direction: row; text-align: left; gap: 6rem; padding: 160px 5% 100px; }
-      .hero-content { text-align: left; }
-      .trust-section, .services, .reviews-section, .coverage, .stats-section, .cta-section { padding: 120px 5%; }
-      .trust-grid, .services-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; max-width: none; }
-      .reviews-grid, .coverage-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-      .booking-panel { max-width: none; padding: 3.5rem; }
+      .nav-container { flex-wrap: nowrap; gap: 2rem; }
+      .hero { 
+        flex-direction: row; align-items: center; text-align: left; 
+        gap: 6rem; padding: 160px 5% 100px;
+      }
+      .hero-content { text-align: left; max-width: 700px; }
+      .trust-section, .services, .reviews-section, .coverage, .stats-section, .cta-section { 
+        padding: 120px 5%; 
+      }
+      .trust-grid, .services-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+        gap: 3rem; max-width: none; 
+      }
+      .reviews-grid, .coverage-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        max-width: 1200px; margin: 0 auto; 
+      }
+      .booking-panel { padding: 3.5rem; max-width: 600px; }
+      .trust-title, .section-title { margin-bottom: 5rem; }
     }
 
     @media (min-width: 1024px) {
       .nav-links { gap: 3rem; }
       .hero { gap: 8rem; }
-      .stats-grid { gap: 3rem; max-width: 1200px; margin: 0 auto; }
+      .stats-grid { gap: 4rem; }
       .booking-panel { padding: 4rem; }
     }
 
     @media (min-width: 1400px) {
       .trust-section, .services { max-width: 1400px; margin: 0 auto; }
+      .stats-container { max-width: 1200px; }
     }
   </style>
 </head>
 <body>
+  <!-- ALL HTML CONTENT REMAINS EXACTLY SAME -->
   <div class="particles" id="particles"></div>
   <div class="gradient-bg"></div>
 
@@ -528,22 +528,22 @@
     <h2 class="section-title">Full Coverage</h2>
     <div class="coverage-grid">
       <div class="coverage-card">
-        <div class="coverage-icon">🏢</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
         <h3>Raipur HQ</h3>
         <p>Airport • Railway • Hospitals • All areas covered</p>
       </div>
       <div class="coverage-card">
-        <div class="coverage-icon">🏭</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🏭</div>
         <h3>Bhilai</h3>
         <p>Complete industrial area coverage 24/7</p>
       </div>
       <div class="coverage-card">
-        <div class="coverage-icon">🏙️</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🏙️</div>
         <h3>Durg</h3>
         <p>Full city coverage guaranteed</p>
       </div>
       <div class="coverage-card">
-        <div class="coverage-icon">🏛️</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🏛️</div>
         <h3>Bilaspur</h3>
         <p>University • Medical • All locations served</p>
       </div>
@@ -584,7 +584,7 @@
   <!-- CTA -->
   <section class="cta-section">
     <h2 class="section-title" style="margin-bottom: 2rem;">Ready For Safe Ride?</h2>
-    <p style="font-size: clamp(1.2rem, 3vw, 1.6rem); max-width: 700px; margin: 0 auto 3rem; opacity: 0.95;">
+    <p style="font-size: clamp(1.2rem, 3vw, 1.6rem); max-width: 700px; margin: 0 auto 4rem; opacity: 0.95;">
       Professional driver reaches you within 30 minutes anywhere in Chhattisgarh
     </p>
     <div class="cta-buttons">
@@ -597,8 +597,8 @@
     </div>
   </section>
 
+  <!-- SAME JAVASCRIPT -->
   <script>
-    // Floating Particles
     function createParticles() {
       const particles = document.getElementById('particles');
       for(let i = 0; i < 50; i++) {
@@ -611,7 +611,6 @@
       }
     }
 
-    // WhatsApp Form
     document.getElementById('bookingForm').addEventListener('submit', e => {
       e.preventDefault();
       const pickup = document.getElementById('pickup').value;
@@ -635,12 +634,10 @@
       }, 2500);
     });
 
-    // Phone validation
     document.getElementById('phone').addEventListener('input', e => {
       e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
         e.preventDefault();
